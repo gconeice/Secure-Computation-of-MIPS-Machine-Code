@@ -5,8 +5,8 @@ int sfe_main(int *a, int *b, int l1, int l2) {
    int n = a[0];
    int e = a[1];
    int * node = a + 2;
-   int * edge = a + 2 + 100;
-   int * weight = a + 2 + 400;
+   int * edge = a + 2 + 101;
+   int * weight = a + 2 + 401;
    int vis[MAX];
    int dis[MAX];
    for (int i = 0; i < n; i++) dis[i] = MAX_INT;
