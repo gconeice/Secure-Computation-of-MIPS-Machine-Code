@@ -7,6 +7,7 @@ import circuits.arithmetic.IntegerLib;
 import flexsc.CompEnv;
 
 public class Memory<T> {
+	public static int mem_acc_cnt = 0;
 	static final int threshold = 65536;
 	boolean useTrivialOram = false;
 	public LinearScanOram<T> trivialOram = null;
@@ -35,6 +36,7 @@ public class Memory<T> {
 	}
 
 	public T[] read(T[] iden, int operationMask)  {
+		mem_acc_cnt++;
 		if ((operationMask&1)==0)
 			return lib.zeros(dataSize);
 		if (useTrivialOram)
@@ -43,6 +45,7 @@ public class Memory<T> {
 			return circuitOram.read(iden);
 	}
 	public T[] read(T[] iden)  {
+		mem_acc_cnt++;
 		if (useTrivialOram)
 			return trivialOram.read(iden);
 		else
@@ -50,6 +53,7 @@ public class Memory<T> {
 	}
 
 	public void write(T[] iden, T[] data, int operationMask) {
+		mem_acc_cnt++;
 		if (((operationMask>>1)&1)==0)return;
 		if (useTrivialOram)
 			trivialOram.write(iden, data);
@@ -58,6 +62,7 @@ public class Memory<T> {
 	}
 
 	public void write(T[] iden, T[] data) {
+		mem_acc_cnt++;
 		if (useTrivialOram)
 			trivialOram.write(iden, data);
 		else

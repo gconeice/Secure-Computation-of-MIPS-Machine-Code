@@ -206,6 +206,9 @@ public class MipsEmulatorImpl<ET> implements MipsEmulator {
 				System.out.println("Size of Memory:"+ memBank.size);
 				System.out.println("numBanks with memory: " + numBanksWithMem+"\n");
 				System.out.println("Result:"+res);
+
+				System.out.println("MEM ORAM READ+WRITE:" + Memory.mem_acc_cnt);
+				System.out.println("PROG ORAM READ:" + SecureMap.inst_acc_cnt);
 			}
 			
 		}

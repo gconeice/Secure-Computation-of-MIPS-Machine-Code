@@ -6,6 +6,7 @@ import java.util.TreeMap;
 import flexsc.CompEnv;
 
 public class SecureMap<T> {
+	public static int inst_acc_cnt = 0;
 	int threshold = 256;
 	boolean useTrivialOMap = false;
 	public TrivialObliviousMap<T> tmap = null;
@@ -50,6 +51,7 @@ public class SecureMap<T> {
 	}
 	
 	public T[] read(T[] scIden) {
+		inst_acc_cnt++;
 		if(useTrivialOMap)
 			return tmap.read(scIden);
 		else{
