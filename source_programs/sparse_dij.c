@@ -9,23 +9,29 @@ int sfe_main(int *a, int *b, int l1, int l2) {
    int * weight = a + 2 + 401;
    int vis[MAX];
    int dis[MAX];
-   for (int i = 0; i < n; i++) dis[i] = MAX_INT;
    dis[b[0]] = 0;
-   for (int i = 0; i < n; i++) vis[i] = 0;
-   for(int i = 0; i < n; ++i) {
+   int i = 0;
+   while (i < n) {
       int bestj = -1, bestdis = MAX_INT;
-      for(int j = 0; j < n; ++j) {
-         if( vis[j] == 0 && dis[j] < bestdis) {
+      int j = 0;
+      while (j < n) {
+         if( vis[j] == 0
+	     && dis[j] < bestdis ) {
             bestj = j;
             bestdis = dis[j];
          }
+	 j++;
       }
       vis[bestj] = 1;
-      for(int j = node[bestj]; j < node[bestj+1]; ++j) {
+      int j = node[bestj];
+      int bound = node[bestj+1];
+      while (j < bound) {
          int newDis = bestdis + weight[j];
          if(newDis < dis[edge[j]])
             dis[edge[j]] = newDis;
+	 j++;
       }
+      i++;
    }
    return dis[b[1]];
 }
