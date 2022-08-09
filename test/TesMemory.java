@@ -60,6 +60,7 @@ public class TesMemory {
 					int element = i % N;
 					GCSignal[] scData = env.inputOfAlice(Utils.fromInt(element*2, dataSize));
 					os.flush();
+					MipsEmulatorImpl.flush_cnt += 1;
 					client.write(client.lib.toSignals(element, client.lengthOfIden), scData);
 
 				}
@@ -68,6 +69,7 @@ public class TesMemory {
 				System.out.println(total/writeCount/1000000000.0);
 
 				os.flush();
+				MipsEmulatorImpl.flush_cnt += 1;
 
 				disconnect();
 			} catch (Exception e) {

@@ -61,6 +61,7 @@ public class TestCircuitOramRec {
 				os.write(capacity);
 				os.write(dataSize);
 				os.flush();
+				//MipsEmulatorImpl.flush_cnt += 1;
 
 				System.out.println("\nlogN recurFactor  cutoff capacity dataSize");
 				System.out.println(logN + " " + recurFactor + " " + cutoff
