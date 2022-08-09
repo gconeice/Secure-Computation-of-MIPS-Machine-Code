@@ -269,7 +269,7 @@ public class MipsEmulatorImpl<ET> implements MipsEmulator {
 			oram.write(6, env.inputOfAlice(Utils.fromInt(config.aliceInputSize, WORD_SIZE)));
 			oram.write(7, env.inputOfAlice(Utils.fromInt(config.bobInputSize, WORD_SIZE)));
 
-			flush_cnt = flush_cnt + 1;
+			flush_cnt += 1;
 			env.flush();
 
 			//Xiao: not sure about following:
