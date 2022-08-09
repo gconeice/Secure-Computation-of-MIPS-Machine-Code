@@ -4,6 +4,7 @@ import flexsc.CompEnv;
 import flexsc.Mode;
 import flexsc.Party;
 import gc.GCSignal;
+import mips.MipsEmulator;
 
 public class TesMemory {
 	static boolean use = false;
@@ -46,6 +47,7 @@ public class TesMemory {
 				os.write(logN);
 				os.write(dataSize);
 				os.flush();
+				MipsEmulator.flush_cnt += 1;
 
 				System.out.println(logN + " " + dataSize);
 				@SuppressWarnings("unchecked")

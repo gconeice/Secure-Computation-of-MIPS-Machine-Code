@@ -19,3 +19,7 @@ RUN ./run.sh a.out gen & ./run.sh a.out eva
 
 sudo tc qdisc add dev ens5 root netem delay 20ms
 sudo tc qdisc del dev ens5 root netem
+
+
+
+sudo tc qdisc add dev lo root netem delay 0ms rate 2Gbit
