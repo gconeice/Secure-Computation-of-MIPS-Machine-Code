@@ -44,6 +44,7 @@ public class MipsEmulatorImpl<ET> implements MipsEmulator {
 	static final int NUMBER_OF_STEPS = 1;
 	static final int REGISTER_SIZE = 32;
 
+	public static int flush_cnt = 0;	
 	/*
 	 * XXInputIsRef indicates whether that user's inputs will fit into the two registers allocated to them.  
 	 * I suppose it is possible they have 3 and 1 input values: that case isn't currently handled.
@@ -209,6 +210,7 @@ public class MipsEmulatorImpl<ET> implements MipsEmulator {
 
 				System.out.println("MEM ORAM READ+WRITE:" + Memory.mem_acc_cnt);
 				System.out.println("PROG ORAM READ:" + SecureMap.inst_acc_cnt);
+				System.out.println("Flush counts:" + flush_cnt);
 			}
 			
 		}
@@ -267,6 +269,7 @@ public class MipsEmulatorImpl<ET> implements MipsEmulator {
 			oram.write(6, env.inputOfAlice(Utils.fromInt(config.aliceInputSize, WORD_SIZE)));
 			oram.write(7, env.inputOfAlice(Utils.fromInt(config.bobInputSize, WORD_SIZE)));
 
+			flush_cnt = flush_cnt + 1;
 			env.flush();
 
 			//Xiao: not sure about following:

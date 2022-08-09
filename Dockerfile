@@ -12,3 +12,10 @@ RUN rm -f src/compiledlib/dov/Cpu_*
 RUN cp src/com/appcomsci/mips/cpu/cpu.txt bin/com/appcomsci/mips/cpu/cpu.txt
 RUN ./scripts/cpuFactory a.out
 RUN ./run.sh a.out gen & ./run.sh a.out eva
+
+
+
+
+
+sudo tc qdisc add dev ens5 root netem delay 20ms
+sudo tc qdisc del dev ens5 root netem
