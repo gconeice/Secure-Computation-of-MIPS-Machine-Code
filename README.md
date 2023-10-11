@@ -1,26 +1,27 @@
-still under construction!!
+# Acknowledgements
 
-installation:
+This is the baseline [WGMK16] repo: https://github.com/wangxiao1254/Secure-Computation-of-MIPS-Machine-Code.
 
-1. install java 8 if needed: 
-`sudo ./script/install_java.sh`
-2. install mipsel:
-`sudo ./script/install_mipsel.sh`
+Eprint link: https://eprint.iacr.org/2015/547
 
+We made some small modifications for testing and fixing bugs.
 
-Compilation:
+# Set Up Environment
 
-1. Compile the c code to binary:
-`./script/compileBinary.sh code.c`
+Update Debian apt source:
 
-2. Compile the code to CPUs:
-`./compile.sh [binary]`
+echo "deb http://archive.debian.org/debian/ stretch main contrib non-free" > sources.list &&
 
-Run:
+echo "deb http://archive.debian.org/debian/ stretch-proposed-updates main contrib non-free" >> sources.list &&
 
-1. put input to alice.txt and bob.txt, and put the length of the input to emulator.properties
+echo "deb http://archive.debian.org/debian-security stretch/updates main contrib non-free" >> sources.list &&
 
-2. edit the server address to the correct address
+sudo cp sources.list /etc/apt/sources.list &&
 
-3. for garbler:  ./run.sh [binary] gen
-   for evalutor: ./run.sh [binary] eva
+sudo apt-get update
+
+Build the compiling toolchain:
+
+sudo bash build.sh
+
+We test above methods already on a vanilla Debian 9 x86-64 machine.
