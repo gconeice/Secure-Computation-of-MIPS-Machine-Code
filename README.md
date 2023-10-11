@@ -68,7 +68,9 @@ iftop -i 172.31.34.241 -f 'port 54321'
 
 # How to Simulate Network Latency
 
-**We tested is only on LAN, namely, one machine executing both Alice and Bob**
+**We tested it only on LAN, namely, one machine executing both Alice and Bob**
+
+**We tested it using benchmark PSI256.**
 
 Re Figure 8 in the paper, we use commands:
 
