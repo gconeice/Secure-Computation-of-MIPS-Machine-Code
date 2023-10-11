@@ -32,7 +32,7 @@ We test above methods already on a vanilla Debian 9 x86_64 machine.
 
 ## PSI
 
-cp testinginput/psi/64**(resp. 256, 1024)**/* ./
+cp testinginput/psi/64/* ./    **(resp. 256, 1024)**
 
 **Update the Server.address to the ip of Alice in Bob's file emulator.properties**
 
@@ -43,7 +43,7 @@ Bob : ./run.sh a.out eva
 
 ## Dijkstra
 
-cp testinginput/dij/40**(resp. 60, 80, 100)**/* ./
+cp testinginput/dij/40/* ./    **(resp. 60, 80, 100)**
 
 **Update the Server.address to the ip of Alice in Bob's file emulator.properties**
 
